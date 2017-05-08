@@ -2,7 +2,7 @@ var Webpack = require('webpack');
 var Path = require('path');
 
 module.exports = {
-  entry: './lib/index.js',
+  entry: [ 'babel-polyfill', './lib/index.js' ],
   target: 'node',
   node: {
     __dirname: false,
