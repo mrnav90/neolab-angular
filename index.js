@@ -109,6 +109,9 @@
 	var SOURCE_IMAGES = _path2.default.join(__dirname, 'assets/images/*');
 	var BUILD_PATH = DEVELOPMENT ? DIST_SRC : BUILD_SRC;
 
+	console.log(SOURCE_ICONS);
+	console.log(__dirname);
+
 	exports.gulpCSS = function () {
 	  _gulp2.default.src(SOURCE_APP).pipe((0, _webpackStream2.default)(_webpack2.default)).pipe(_gulp2.default.dest(BUILD_PATH));
 	};
