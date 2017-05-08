@@ -1,5 +1,6 @@
+'use strict';
+
 var Webpack = require('webpack');
-var Path = require('path');
 
 module.exports = {
   entry: './lib/index.js',
@@ -9,7 +10,6 @@ module.exports = {
     __filename: false
   },
   output: {
-    path: Path.join(__dirname),
     filename: 'index.js',
     libraryTarget: 'commonjs'
   },
