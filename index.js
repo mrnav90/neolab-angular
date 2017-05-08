@@ -99,14 +99,14 @@
 	_dotenv2.default.load();
 
 	var DEVELOPMENT = process.env.NODE_ENV === 'development' || true;
-	var BUILD_SRC = _path2.default.join(__dirname, process.env.BUILD_SRC) || _path2.default.join(__dirname, 'public');
-	var DIST_SRC = _path2.default.join(__dirname, process.env.BUILD_SRC) || _path2.default.join(__dirname, 'dist');
-	var SOURCE_APP = _path2.default.join(__dirname, process.env.SOURCE_APP) || _path2.default.join(__dirname, 'src/index.js');
-	var SOURCE_JS = _path2.default.join(__dirname, process.env.SOURCE_JS) || _path2.default.join(__dirname, 'src/**/*.js');
-	var SOURCE_CSS = _path2.default.join(__dirname, process.env.SOURCE_CSS) || _path2.default.join(__dirname, 'src/**/*.scss');
-	var SOURCE_TEMPLATE = _path2.default.join(__dirname, process.env.SOURCE_TEMPLATE) || _path2.default.join(__dirname, 'src/**/*.html');
-	var SOURCE_ICONS = _path2.default.join(__dirname, process.env.SOURCE_ICONS) || _path2.default.join(__dirname, 'assets/icons/*');
-	var SOURCE_IMAGES = _path2.default.join(__dirname, process.env.SOURCE_IMAGES) || _path2.default.join(__dirname, 'assets/images/*');
+	var BUILD_SRC = _path2.default.join(__dirname, JSON.stringify(process.env.BUILD_SRC)) || _path2.default.join(__dirname, 'public');
+	var DIST_SRC = _path2.default.join(__dirname, JSON.stringify(process.env.BUILD_SRC)) || _path2.default.join(__dirname, 'dist');
+	var SOURCE_APP = _path2.default.join(__dirname, JSON.stringify(process.env.SOURCE_APP)) || _path2.default.join(__dirname, 'src/index.js');
+	var SOURCE_JS = _path2.default.join(__dirname, JSON.stringify(process.env.SOURCE_JS)) || _path2.default.join(__dirname, 'src/**/*.js');
+	var SOURCE_CSS = _path2.default.join(__dirname, JSON.stringify(process.env.SOURCE_CSS)) || _path2.default.join(__dirname, 'src/**/*.scss');
+	var SOURCE_TEMPLATE = _path2.default.join(__dirname, JSON.stringify(process.env.SOURCE_TEMPLATE)) || _path2.default.join(__dirname, 'src/**/*.html');
+	var SOURCE_ICONS = _path2.default.join(__dirname, JSON.stringify(process.env.SOURCE_ICONS)) || _path2.default.join(__dirname, 'assets/icons/*');
+	var SOURCE_IMAGES = _path2.default.join(__dirname, JSON.stringify(process.env.SOURCE_IMAGES)) || _path2.default.join(__dirname, 'assets/images/*');
 	var BUILD_PATH = DEVELOPMENT ? DIST_SRC : BUILD_SRC;
 
 	exports.gulpCSS = function () {
