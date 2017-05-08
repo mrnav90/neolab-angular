@@ -1,9 +1,11 @@
 {
-  "name": "NeoLab-Angular",
+  "name": "neolab-angular",
   "version": "1.0.0",
   "author": "VietNa",
   "description": "Library support neolab front-end for angular v1",
-  "scripts": {},
+  "scripts": {
+    "start": "webpack -p"
+  },
   "dependencies": {
     "angular": "1.5.8",
     "angular-cookies": "1.5.8",
@@ -27,6 +29,7 @@
     "babel-preset-es2015": "^6.16.0",
     "compression-webpack-plugin": "^0.3.2",
     "css-loader": "^0.25.0",
+    "dotenv": "^4.0.0",
     "eslint": "^3.7.1",
     "eslint-config-ggc": "^1.2.22",
     "extract-text-webpack-plugin": "^1.0.1",
@@ -34,8 +37,11 @@
     "gulp": "^3.9.1",
     "gulp-angular-templatecache": "^2.0.0",
     "gulp-cssmin": "^0.1.7",
+    "gulp-gzip": "^1.4.0",
     "gulp-htmlmin": "^3.0.0",
     "gulp-rename": "^1.2.2",
+    "gulp-rev-all": "^0.9.7",
+    "gulp-rev-replace": "^0.4.3",
     "gulp-sass": "^2.3.2",
     "image-webpack-loader": "2.0.0",
     "json-loader": "^0.5.4",
@@ -43,12 +49,10 @@
     "require-dir": "^0.3.1",
     "sass-loader": "^4.0.2",
     "style-loader": "^0.13.1",
+    "tap": "^10.3.2",
     "url-loader": "^0.5.7",
     "webpack": "^1.13.2",
-    "webpack-stream": "^3.2.0",
-    "gulp-rev-replace": "^0.4.3",
-    "gulp-rev-all": "^0.9.7",
-    "gulp-gzip": "^1.4.0"
+    "webpack-stream": "^3.2.0"
   },
   "license": "MIT"
 }
