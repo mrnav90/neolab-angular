@@ -44,9 +44,17 @@
 /* 0 */
 /***/ (function(module, exports, __webpack_require__) {
 
-	__webpack_require__(6);
-	module.exports = __webpack_require__(3);
+	'use strict';
 
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	exports.copyImages = exports.gulpCSS = undefined;
+
+	var _gulp = __webpack_require__(3);
+
+	exports.gulpCSS = _gulp.gulpCSS;
+	exports.copyImages = _gulp.copyImages;
 
 /***/ }),
 /* 1 */
@@ -66,23 +74,7 @@
 
 	'use strict';
 
-	Object.defineProperty(exports, "__esModule", {
-	  value: true
-	});
-	exports.copyImages = exports.gulpCSS = undefined;
-
-	var _gulp = __webpack_require__(4);
-
-	exports.gulpCSS = _gulp.gulpCSS;
-	exports.copyImages = _gulp.copyImages;
-
-/***/ }),
-/* 4 */
-/***/ (function(module, exports, __webpack_require__) {
-
-	'use strict';
-
-	var _gulp = __webpack_require__(8);
+	var _gulp = __webpack_require__(6);
 
 	var _gulp2 = _interopRequireDefault(_gulp);
 
@@ -94,11 +86,11 @@
 
 	var _path2 = _interopRequireDefault(_path);
 
-	var _webpackStream = __webpack_require__(10);
+	var _webpackStream = __webpack_require__(8);
 
 	var _webpackStream2 = _interopRequireDefault(_webpackStream);
 
-	var _webpack = __webpack_require__(5);
+	var _webpack = __webpack_require__(4);
 
 	var _webpack2 = _interopRequireDefault(_webpack);
 
@@ -126,7 +118,7 @@
 	};
 
 /***/ }),
-/* 5 */
+/* 4 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -139,11 +131,11 @@
 
 	var _dotenv2 = _interopRequireDefault(_dotenv);
 
-	var _webpack = __webpack_require__(9);
+	var _webpack = __webpack_require__(7);
 
 	var _webpack2 = _interopRequireDefault(_webpack);
 
-	var _extractTextWebpackPlugin = __webpack_require__(7);
+	var _extractTextWebpackPlugin = __webpack_require__(5);
 
 	var _extractTextWebpackPlugin2 = _interopRequireDefault(_extractTextWebpackPlugin);
 
@@ -212,31 +204,25 @@
 	};
 
 /***/ }),
-/* 6 */
-/***/ (function(module, exports) {
-
-	module.exports = babel-polyfill;
-
-/***/ }),
-/* 7 */
+/* 5 */
 /***/ (function(module, exports) {
 
 	module.exports = extract-text-webpack-plugin;
 
 /***/ }),
-/* 8 */
+/* 6 */
 /***/ (function(module, exports) {
 
 	module.exports = gulp;
 
 /***/ }),
-/* 9 */
+/* 7 */
 /***/ (function(module, exports) {
 
 	module.exports = webpack;
 
 /***/ }),
-/* 10 */
+/* 8 */
 /***/ (function(module, exports) {
 
 	module.exports = webpack-stream;
