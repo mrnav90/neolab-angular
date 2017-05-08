@@ -74,7 +74,7 @@
 
 	'use strict';
 
-	var _gulp = __webpack_require__(6);
+	var _gulp = __webpack_require__(7);
 
 	var _gulp2 = _interopRequireDefault(_gulp);
 
@@ -86,13 +86,17 @@
 
 	var _path2 = _interopRequireDefault(_path);
 
-	var _webpackStream = __webpack_require__(8);
+	var _webpackStream = __webpack_require__(9);
 
 	var _webpackStream2 = _interopRequireDefault(_webpackStream);
 
 	var _webpack = __webpack_require__(4);
 
 	var _webpack2 = _interopRequireDefault(_webpack);
+
+	var _appRootPath = __webpack_require__(5);
+
+	var _appRootPath2 = _interopRequireDefault(_appRootPath);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -110,7 +114,7 @@
 	var BUILD_PATH = DEVELOPMENT ? DIST_SRC : BUILD_SRC;
 
 	console.log(SOURCE_ICONS);
-	console.log(__dirname);
+	console.log(_appRootPath2.default);
 
 	exports.gulpCSS = function () {
 	  _gulp2.default.src(SOURCE_APP).pipe((0, _webpackStream2.default)(_webpack2.default)).pipe(_gulp2.default.dest(BUILD_PATH));
@@ -134,11 +138,11 @@
 
 	var _dotenv2 = _interopRequireDefault(_dotenv);
 
-	var _webpack = __webpack_require__(7);
+	var _webpack = __webpack_require__(8);
 
 	var _webpack2 = _interopRequireDefault(_webpack);
 
-	var _extractTextWebpackPlugin = __webpack_require__(5);
+	var _extractTextWebpackPlugin = __webpack_require__(6);
 
 	var _extractTextWebpackPlugin2 = _interopRequireDefault(_extractTextWebpackPlugin);
 
@@ -210,22 +214,28 @@
 /* 5 */
 /***/ (function(module, exports) {
 
-	module.exports = require("extract-text-webpack-plugin");
+	module.exports = require("app-root-path");
 
 /***/ }),
 /* 6 */
 /***/ (function(module, exports) {
 
-	module.exports = require("gulp");
+	module.exports = require("extract-text-webpack-plugin");
 
 /***/ }),
 /* 7 */
 /***/ (function(module, exports) {
 
-	module.exports = require("webpack");
+	module.exports = require("gulp");
 
 /***/ }),
 /* 8 */
+/***/ (function(module, exports) {
+
+	module.exports = require("webpack");
+
+/***/ }),
+/* 9 */
 /***/ (function(module, exports) {
 
 	module.exports = require("webpack-stream");
