@@ -93,22 +93,21 @@
 	_dotenv2.default.load();
 
 	var DEVELOPMENT = process.env.NODE_ENV === 'development' || true;
-	var BUILD_SRC = _appRootPath2.default + '/public';
-	var DIST_SRC = _appRootPath2.default + '/dist';
-	var SOURCE_APP = _appRootPath2.default + '/src/index.js';
-	var SOURCE_JS = _appRootPath2.default + '/src/**/*.js';
-	var SOURCE_CSS = _appRootPath2.default + '/src/**/*.scss';
-	var SOURCE_TEMPLATE = _appRootPath2.default + '/src/**/*.html';
-	var SOURCE_ICONS = _appRootPath2.default + '/assets/icons/*';
-	var SOURCE_IMAGES = _appRootPath2.default + '/assets/images/*';
-	var BUILD_PATH = DEVELOPMENT ? DIST_SRC : BUILD_SRC;
+	var PUBLIC_PATH = _appRootPath2.default.resolve(process.env.PUBLIC_PATH || '/public');
+	var DIST_PATH = _appRootPath2.default.resolve(process.env.DIST_PATH || '/dist');
+	var APP_JS = _appRootPath2.default.resolve(process.env.APP_JS || '/src/index.js');
+	var JS_FILES = _appRootPath2.default.resolve(process.env.JS_FILES || '/src/**/*.js');
+	var SCSS_FILES = _appRootPath2.default.resolve(process.env.SCSS_FILES || '/src/**/*.scss');
+	var HTML_FILES = _appRootPath2.default.resolve(process.env.HTML_FILES || '/src/**/*.html');
+	var ASSETS_FILES = _appRootPath2.default.resolve(process.env.ASSETS_FILES || '/assets/**/*');
+	var BUILD_PATH = DEVELOPMENT ? DIST_PATH : PUBLIC_PATH;
 
 	exports.gulpCSS = function () {
-	  _gulp2.default.src(SOURCE_APP).pipe((0, _webpackStream2.default)(_webpack2.default)).pipe(_gulp2.default.dest(BUILD_PATH));
+	  _gulp2.default.src(APP_JS).pipe((0, _webpackStream2.default)(_webpack2.default)).pipe(_gulp2.default.dest(BUILD_PATH));
 	};
 
 	exports.copyImages = function () {
-	  _gulp2.default.src([SOURCE_ICONS, SOURCE_IMAGES]).pipe(_gulp2.default.dest(BUILD_PATH));
+	  _gulp2.default.src(ASSETS_FILES).pipe(_gulp2.default.dest(BUILD_PATH));
 	};
 
 /***/ }),
