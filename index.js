@@ -103,18 +103,15 @@
 	_dotenv2.default.load();
 
 	var DEVELOPMENT = process.env.NODE_ENV === 'development' || true;
-	var BUILD_SRC = _path2.default.join(__dirname, 'public');
-	var DIST_SRC = _path2.default.join(__dirname, 'dist');
-	var SOURCE_APP = _path2.default.join(__dirname, 'src/index.js');
-	var SOURCE_JS = _path2.default.join(__dirname, 'src/**/*.js');
-	var SOURCE_CSS = _path2.default.join(__dirname, 'src/**/*.scss');
-	var SOURCE_TEMPLATE = _path2.default.join(__dirname, 'src/**/*.html');
-	var SOURCE_ICONS = _path2.default.join(__dirname, 'assets/icons/*');
-	var SOURCE_IMAGES = _path2.default.join(__dirname, 'assets/images/*');
+	var BUILD_SRC = _path2.default.join(_appRootPath2.default, 'public');
+	var DIST_SRC = _path2.default.join(_appRootPath2.default, 'dist');
+	var SOURCE_APP = _path2.default.join(_appRootPath2.default, 'src/index.js');
+	var SOURCE_JS = _path2.default.join(_appRootPath2.default, 'src/**/*.js');
+	var SOURCE_CSS = _path2.default.join(_appRootPath2.default, 'src/**/*.scss');
+	var SOURCE_TEMPLATE = _path2.default.join(_appRootPath2.default, 'src/**/*.html');
+	var SOURCE_ICONS = _path2.default.join(_appRootPath2.default, 'assets/icons/*');
+	var SOURCE_IMAGES = _path2.default.join(_appRootPath2.default, 'assets/images/*');
 	var BUILD_PATH = DEVELOPMENT ? DIST_SRC : BUILD_SRC;
-
-	console.log(SOURCE_ICONS);
-	console.log(_appRootPath2.default);
 
 	exports.gulpCSS = function () {
 	  _gulp2.default.src(SOURCE_APP).pipe((0, _webpackStream2.default)(_webpack2.default)).pipe(_gulp2.default.dest(BUILD_PATH));
