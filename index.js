@@ -51,7 +51,7 @@
 	});
 	exports.copyImages = exports.gulpCSS = undefined;
 
-	var _gulp = __webpack_require__(3);
+	var _gulp = __webpack_require__(2);
 
 	exports.gulpCSS = _gulp.gulpCSS;
 	exports.copyImages = _gulp.copyImages;
@@ -64,17 +64,11 @@
 
 /***/ }),
 /* 2 */
-/***/ (function(module, exports) {
-
-	module.exports = require("path");
-
-/***/ }),
-/* 3 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
 
-	var _gulp = __webpack_require__(7);
+	var _gulp = __webpack_require__(6);
 
 	var _gulp2 = _interopRequireDefault(_gulp);
 
@@ -82,19 +76,15 @@
 
 	var _dotenv2 = _interopRequireDefault(_dotenv);
 
-	var _path = __webpack_require__(2);
-
-	var _path2 = _interopRequireDefault(_path);
-
 	var _webpackStream = __webpack_require__(9);
 
 	var _webpackStream2 = _interopRequireDefault(_webpackStream);
 
-	var _webpack = __webpack_require__(4);
+	var _webpack = __webpack_require__(3);
 
 	var _webpack2 = _interopRequireDefault(_webpack);
 
-	var _appRootPath = __webpack_require__(5);
+	var _appRootPath = __webpack_require__(4);
 
 	var _appRootPath2 = _interopRequireDefault(_appRootPath);
 
@@ -103,14 +93,14 @@
 	_dotenv2.default.load();
 
 	var DEVELOPMENT = process.env.NODE_ENV === 'development' || true;
-	var BUILD_SRC = _path2.default.join(_appRootPath2.default, 'public');
-	var DIST_SRC = _path2.default.join(_appRootPath2.default, 'dist');
-	var SOURCE_APP = _path2.default.join(_appRootPath2.default, 'src/index.js');
-	var SOURCE_JS = _path2.default.join(_appRootPath2.default, 'src/**/*.js');
-	var SOURCE_CSS = _path2.default.join(_appRootPath2.default, 'src/**/*.scss');
-	var SOURCE_TEMPLATE = _path2.default.join(_appRootPath2.default, 'src/**/*.html');
-	var SOURCE_ICONS = _path2.default.join(_appRootPath2.default, 'assets/icons/*');
-	var SOURCE_IMAGES = _path2.default.join(_appRootPath2.default, 'assets/images/*');
+	var BUILD_SRC = _appRootPath2.default + '/public';
+	var DIST_SRC = _appRootPath2.default + '/dist';
+	var SOURCE_APP = _appRootPath2.default + '/src/index.js';
+	var SOURCE_JS = _appRootPath2.default + '/src/**/*.js';
+	var SOURCE_CSS = _appRootPath2.default + '/src/**/*.scss';
+	var SOURCE_TEMPLATE = _appRootPath2.default + '/src/**/*.html';
+	var SOURCE_ICONS = _appRootPath2.default + '/assets/icons/*';
+	var SOURCE_IMAGES = _appRootPath2.default + '/assets/images/*';
 	var BUILD_PATH = DEVELOPMENT ? DIST_SRC : BUILD_SRC;
 
 	exports.gulpCSS = function () {
@@ -122,12 +112,12 @@
 	};
 
 /***/ }),
-/* 4 */
+/* 3 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
 
-	var _path = __webpack_require__(2);
+	var _path = __webpack_require__(7);
 
 	var _path2 = _interopRequireDefault(_path);
 
@@ -139,7 +129,7 @@
 
 	var _webpack2 = _interopRequireDefault(_webpack);
 
-	var _extractTextWebpackPlugin = __webpack_require__(6);
+	var _extractTextWebpackPlugin = __webpack_require__(5);
 
 	var _extractTextWebpackPlugin2 = _interopRequireDefault(_extractTextWebpackPlugin);
 
@@ -208,22 +198,28 @@
 	};
 
 /***/ }),
-/* 5 */
+/* 4 */
 /***/ (function(module, exports) {
 
 	module.exports = require("app-root-path");
 
 /***/ }),
-/* 6 */
+/* 5 */
 /***/ (function(module, exports) {
 
 	module.exports = require("extract-text-webpack-plugin");
 
 /***/ }),
-/* 7 */
+/* 6 */
 /***/ (function(module, exports) {
 
 	module.exports = require("gulp");
+
+/***/ }),
+/* 7 */
+/***/ (function(module, exports) {
+
+	module.exports = require("path");
 
 /***/ }),
 /* 8 */
