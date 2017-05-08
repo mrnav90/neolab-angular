@@ -10,7 +10,8 @@ module.exports = {
   },
   output: {
     path: Path.join(__dirname),
-    filename: 'index.js'
+    filename: 'index.js',
+    libraryTarget: 'commonjs'
   },
   stats: { children: false },
   externals: [ /^(?!\.|\/).+/i ],
@@ -24,10 +25,6 @@ module.exports = {
       {
         test: /\.json$/,
         loader: 'json-loader'
-      },
-      {
-        test: /\.js$/,
-        loader: 'exports-loader'
       }
     ]
   },
