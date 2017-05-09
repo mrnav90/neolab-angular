@@ -365,11 +365,7 @@
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 	function TemplateCache() {
-	  var templates = _gulp2.default.src(_config.HTML_FILES);
-	  templates.pipe((0, _gulpHtmlmin2.default)({ collapseWhitespace: true }));
-	  templates.pipe((0, _gulpAngularTemplatecache2.default)({ standalone: true }));
-	  templates.pipe((0, _gulpUglify2.default)());
-	  templates.pipe((0, _gulpRename2.default)(_config.TEMPLATE_CACHE));
+	  var templates = _gulp2.default.src(_config.HTML_FILES).pipe((0, _gulpHtmlmin2.default)({ collapseWhitespace: true })).pipe((0, _gulpAngularTemplatecache2.default)({ standalone: true })).pipe((0, _gulpUglify2.default)()).pipe((0, _gulpRename2.default)(_config.TEMPLATE_CACHE));
 	  return _config.DEVELOPMENT ? templates.pipe(_gulp2.default.dest(_config.DIST_PATH)) : templates.pipe((0, _gulpGzip2.default)({ append: false })).pipe(_gulp2.default.dest(_config.PUBLIC_PATH));
 	}
 
