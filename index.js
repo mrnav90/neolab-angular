@@ -49,9 +49,11 @@
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
-	exports.FinishRevision = exports.StartRevision = exports.Template = exports.Sass = exports.Html = exports.CopyAssets = undefined;
+	exports.HTML_FILES = exports.SCSS_FILES = exports.JS_FILES = exports.FinishRevision = exports.StartRevision = exports.Template = exports.Sass = exports.Html = exports.CopyAssets = undefined;
 
 	var _tools = __webpack_require__(15);
+
+	var _config = __webpack_require__(1);
 
 	exports.CopyAssets = _tools.CopyAssets;
 	exports.Html = _tools.Html;
@@ -59,6 +61,9 @@
 	exports.Template = _tools.Template;
 	exports.StartRevision = _tools.StartRevision;
 	exports.FinishRevision = _tools.FinishRevision;
+	exports.JS_FILES = _config.JS_FILES;
+	exports.SCSS_FILES = _config.SCSS_FILES;
+	exports.HTML_FILES = _config.HTML_FILES;
 
 /***/ }),
 /* 1 */
