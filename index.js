@@ -49,7 +49,7 @@
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
-	exports.Build = exports.Dev = exports.Webpack = exports.FinishRevision = exports.StartRevision = exports.Template = exports.Sass = exports.CopyHtml = exports.CopyAssets = undefined;
+	exports.GulpBuild = exports.GulpDev = exports.Gulp = exports.Webpack = exports.FinishRevision = exports.StartRevision = exports.Template = exports.Sass = exports.CopyHtml = exports.CopyAssets = undefined;
 
 	var _tools = __webpack_require__(17);
 
@@ -60,8 +60,9 @@
 	exports.StartRevision = _tools.StartRevision;
 	exports.FinishRevision = _tools.FinishRevision;
 	exports.Webpack = _tools.Webpack;
-	exports.Dev = _tools.Dev;
-	exports.Build = _tools.Build;
+	exports.Gulp = _tools.Gulp;
+	exports.GulpDev = _tools.GulpDev;
+	exports.GulpBuild = _tools.GulpBuild;
 
 /***/ }),
 /* 1 */
@@ -460,7 +461,11 @@
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
-	exports.Build = exports.Dev = exports.Webpack = exports.FinishRevision = exports.StartRevision = exports.Template = exports.Sass = exports.CopyHtml = exports.CopyAssets = undefined;
+	exports.GulpBuild = exports.GulpDev = exports.Gulp = exports.Webpack = exports.FinishRevision = exports.StartRevision = exports.Template = exports.Sass = exports.CopyHtml = exports.CopyAssets = undefined;
+
+	var _gulp = __webpack_require__(2);
+
+	var _gulp2 = _interopRequireDefault(_gulp);
 
 	var _assets = __webpack_require__(8);
 
@@ -500,6 +505,14 @@
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
+	_gulp2.default.task('copy-assets', _assets2.default);
+	_gulp2.default.task('copy-html', _html2.default);
+	_gulp2.default.task('sass', _sass2.default);
+	_gulp2.default.task('template', _template2.default);
+	_gulp2.default.task('start-revision', _startRevision2.default);
+	_gulp2.default.task('finish-revision', _finishRevision2.default);
+	_gulp2.default.task('webpack', _webpack2.default);
+
 	exports.CopyAssets = _assets2.default;
 	exports.CopyHtml = _html2.default;
 	exports.Sass = _sass2.default;
@@ -507,8 +520,9 @@
 	exports.StartRevision = _startRevision2.default;
 	exports.FinishRevision = _finishRevision2.default;
 	exports.Webpack = _webpack2.default;
-	exports.Dev = _dev2.default;
-	exports.Build = _build2.default;
+	exports.Gulp = _gulp2.default;
+	exports.GulpDev = _dev2.default;
+	exports.GulpBuild = _build2.default;
 
 /***/ }),
 /* 18 */
