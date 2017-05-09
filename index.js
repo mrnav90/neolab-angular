@@ -49,18 +49,19 @@
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
-	exports.HTML_FILES = exports.SCSS_FILES = exports.JS_FILES = exports.APP_INDEX = exports.FinishRevision = exports.StartRevision = exports.Template = exports.Sass = exports.Html = exports.CopyAssets = undefined;
+	exports.HTML_FILES = exports.SCSS_FILES = exports.JS_FILES = exports.APP_INDEX = exports.Webpack = exports.FinishRevision = exports.StartRevision = exports.Template = exports.Sass = exports.CopyHtml = exports.CopyAssets = undefined;
 
 	var _tools = __webpack_require__(15);
 
 	var _config = __webpack_require__(1);
 
 	exports.CopyAssets = _tools.CopyAssets;
-	exports.Html = _tools.Html;
+	exports.CopyHtml = _tools.CopyHtml;
 	exports.Sass = _tools.Sass;
 	exports.Template = _tools.Template;
 	exports.StartRevision = _tools.StartRevision;
 	exports.FinishRevision = _tools.FinishRevision;
+	exports.Webpack = _tools.Webpack;
 	exports.APP_INDEX = _config.APP_INDEX;
 	exports.JS_FILES = _config.JS_FILES;
 	exports.SCSS_FILES = _config.SCSS_FILES;
