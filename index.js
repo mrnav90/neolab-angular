@@ -49,7 +49,7 @@
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
-	exports.GulpBuild = exports.GulpDev = exports.Webpack = exports.FinishRevision = exports.StartRevision = exports.Template = exports.Sass = exports.CopyHtml = exports.CopyAssets = undefined;
+	exports.GulpBuild = exports.GulpDev = exports.Gulp = exports.Webpack = exports.FinishRevision = exports.StartRevision = exports.Template = exports.Sass = exports.CopyHtml = exports.CopyAssets = undefined;
 
 	var _tools = __webpack_require__(17);
 
@@ -60,6 +60,7 @@
 	exports.StartRevision = _tools.StartRevision;
 	exports.FinishRevision = _tools.FinishRevision;
 	exports.Webpack = _tools.Webpack;
+	exports.Gulp = _tools.Gulp;
 	exports.GulpDev = _tools.GulpDev;
 	exports.GulpBuild = _tools.GulpBuild;
 
@@ -460,7 +461,11 @@
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
-	exports.GulpBuild = exports.GulpDev = exports.Webpack = exports.FinishRevision = exports.StartRevision = exports.Template = exports.Sass = exports.CopyHtml = exports.CopyAssets = undefined;
+	exports.GulpBuild = exports.GulpDev = exports.Gulp = exports.Webpack = exports.FinishRevision = exports.StartRevision = exports.Template = exports.Sass = exports.CopyHtml = exports.CopyAssets = undefined;
+
+	var _gulp = __webpack_require__(2);
+
+	var _gulp2 = _interopRequireDefault(_gulp);
 
 	var _assets = __webpack_require__(8);
 
@@ -507,6 +512,7 @@
 	exports.StartRevision = _startRevision2.default;
 	exports.FinishRevision = _finishRevision2.default;
 	exports.Webpack = _webpack2.default;
+	exports.Gulp = _gulp2.default;
 	exports.GulpDev = _dev2.default;
 	exports.GulpBuild = _build2.default;
 
