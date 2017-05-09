@@ -86,7 +86,7 @@
 
 	_dotenv2.default.load();
 
-	var DEVELOPMENT = process.env.NODE_ENV === 'development' || true;
+	var DEVELOPMENT = process.env.NODE_ENV === 'development';
 	var API_URL = process.env.API_URL;
 	var PUBLIC_PATH = _appRootPath2.default.resolve(process.env.PUBLIC_PATH || '/public');
 	var DIST_PATH = _appRootPath2.default.resolve(process.env.DIST_PATH || '/dist');
