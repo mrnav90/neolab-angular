@@ -207,7 +207,7 @@
       }
     ],                                // enforce one true brace style
     "camelcase": [
-      2,
+      0,
       {
         "properties": "always"
       }
