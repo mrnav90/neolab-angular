@@ -49,11 +49,9 @@
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
-	exports.HTML_FILES = exports.SCSS_FILES = exports.JS_FILES = exports.APP_INDEX = exports.Webpack = exports.FinishRevision = exports.StartRevision = exports.Template = exports.Sass = exports.CopyHtml = exports.CopyAssets = undefined;
+	exports.Build = exports.Dev = exports.Webpack = exports.FinishRevision = exports.StartRevision = exports.Template = exports.Sass = exports.CopyHtml = exports.CopyAssets = undefined;
 
-	var _tools = __webpack_require__(15);
-
-	var _config = __webpack_require__(1);
+	var _tools = __webpack_require__(17);
 
 	exports.CopyAssets = _tools.CopyAssets;
 	exports.CopyHtml = _tools.CopyHtml;
@@ -62,10 +60,8 @@
 	exports.StartRevision = _tools.StartRevision;
 	exports.FinishRevision = _tools.FinishRevision;
 	exports.Webpack = _tools.Webpack;
-	exports.APP_INDEX = _config.APP_INDEX;
-	exports.JS_FILES = _config.JS_FILES;
-	exports.SCSS_FILES = _config.SCSS_FILES;
-	exports.HTML_FILES = _config.HTML_FILES;
+	exports.Dev = _tools.Dev;
+	exports.Build = _tools.Build;
 
 /***/ }),
 /* 1 */
@@ -78,11 +74,11 @@
 	});
 	exports.API_URL = exports.MAIN_HTML = exports.MAIN_STYLE = exports.MAIN_JS = exports.PUBLIC_TEMPLATE = exports.PUBLIC_MANIFEST = exports.PUBLIC_HTML = exports.PUBLIC_STYLE = exports.PUBLIC_JS = exports.TEMPLATE_CACHE = exports.BUILD_PATH = exports.ASSETS_FILES = exports.HTML_FILES = exports.SCSS_FILES = exports.JS_FILES = exports.APP_INDEX = exports.APP_JS = exports.DIST_PATH = exports.PUBLIC_PATH = exports.DEVELOPMENT = undefined;
 
-	var _appRootPath = __webpack_require__(18);
+	var _appRootPath = __webpack_require__(20);
 
 	var _appRootPath2 = _interopRequireDefault(_appRootPath);
 
-	var _dotenv = __webpack_require__(19);
+	var _dotenv = __webpack_require__(21);
 
 	var _dotenv2 = _interopRequireDefault(_dotenv);
 
@@ -144,11 +140,11 @@
 
 	'use strict';
 
-	var _production = __webpack_require__(17);
+	var _production = __webpack_require__(19);
 
 	var _production2 = _interopRequireDefault(_production);
 
-	var _dev = __webpack_require__(16);
+	var _dev = __webpack_require__(18);
 
 	var _dev2 = _interopRequireDefault(_dev);
 
@@ -220,6 +216,61 @@
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
+	exports.default = Build;
+
+	var _gulp = __webpack_require__(2);
+
+	var _gulp2 = _interopRequireDefault(_gulp);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	function Build() {
+	  return _gulp2.default.start(['copy-html', 'copy-assets'], function () {
+	    return _gulp2.default.start(['webpack', 'template'], function () {
+	      _gulp2.default.emit('end');
+	    });
+	  });
+	}
+
+/***/ }),
+/* 10 */
+/***/ (function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	exports.default = Dev;
+
+	var _gulp = __webpack_require__(2);
+
+	var _gulp2 = _interopRequireDefault(_gulp);
+
+	var _config = __webpack_require__(1);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	function Dev() {
+	  return _gulp2.default.start(['copy-html', 'copy-assets'], function () {
+	    return _gulp2.default.start(['webpack', 'template'], function () {
+	      _gulp2.default.watch(_config.APP_INDEX, ['copy-html']);
+	      _gulp2.default.watch(_config.HTML_FILES, ['template']);
+	      _gulp2.default.watch(_config.JS_FILES, ['webpack']);
+	      _gulp2.default.watch(_config.SCSS_FILES, ['sass']);
+	    });
+	  });
+	}
+
+/***/ }),
+/* 11 */
+/***/ (function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
 	exports.default = FinishRevision;
 
 	var _gulp = __webpack_require__(2);
@@ -230,7 +281,7 @@
 
 	var _gulpHtmlmin2 = _interopRequireDefault(_gulpHtmlmin);
 
-	var _gulpRevReplace = __webpack_require__(24);
+	var _gulpRevReplace = __webpack_require__(26);
 
 	var _gulpRevReplace2 = _interopRequireDefault(_gulpRevReplace);
 
@@ -244,7 +295,7 @@
 	}
 
 /***/ }),
-/* 10 */
+/* 12 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -267,7 +318,7 @@
 	}
 
 /***/ }),
-/* 11 */
+/* 13 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -298,7 +349,7 @@
 	}
 
 /***/ }),
-/* 12 */
+/* 14 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -312,7 +363,7 @@
 
 	var _gulp2 = _interopRequireDefault(_gulp);
 
-	var _gulpRevAll = __webpack_require__(23);
+	var _gulpRevAll = __webpack_require__(25);
 
 	var _gulpRevAll2 = _interopRequireDefault(_gulpRevAll);
 
@@ -326,7 +377,7 @@
 	}
 
 /***/ }),
-/* 13 */
+/* 15 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -340,19 +391,19 @@
 
 	var _gulp2 = _interopRequireDefault(_gulp);
 
-	var _gulpAngularTemplatecache = __webpack_require__(20);
+	var _gulpAngularTemplatecache = __webpack_require__(22);
 
 	var _gulpAngularTemplatecache2 = _interopRequireDefault(_gulpAngularTemplatecache);
 
-	var _gulpRename = __webpack_require__(22);
+	var _gulpRename = __webpack_require__(24);
 
 	var _gulpRename2 = _interopRequireDefault(_gulpRename);
 
-	var _gulpGzip = __webpack_require__(21);
+	var _gulpGzip = __webpack_require__(23);
 
 	var _gulpGzip2 = _interopRequireDefault(_gulpGzip);
 
-	var _gulpUglify = __webpack_require__(25);
+	var _gulpUglify = __webpack_require__(27);
 
 	var _gulpUglify2 = _interopRequireDefault(_gulpUglify);
 
@@ -370,7 +421,7 @@
 	}
 
 /***/ }),
-/* 14 */
+/* 16 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -401,7 +452,7 @@
 	}
 
 /***/ }),
-/* 15 */
+/* 17 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -409,35 +460,43 @@
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
-	exports.Webpack = exports.FinishRevision = exports.StartRevision = exports.Template = exports.Sass = exports.CopyHtml = exports.CopyAssets = undefined;
+	exports.Build = exports.Dev = exports.Webpack = exports.FinishRevision = exports.StartRevision = exports.Template = exports.Sass = exports.CopyHtml = exports.CopyAssets = undefined;
 
 	var _assets = __webpack_require__(8);
 
 	var _assets2 = _interopRequireDefault(_assets);
 
-	var _html = __webpack_require__(10);
+	var _html = __webpack_require__(12);
 
 	var _html2 = _interopRequireDefault(_html);
 
-	var _sass = __webpack_require__(11);
+	var _sass = __webpack_require__(13);
 
 	var _sass2 = _interopRequireDefault(_sass);
 
-	var _template = __webpack_require__(13);
+	var _template = __webpack_require__(15);
 
 	var _template2 = _interopRequireDefault(_template);
 
-	var _startRevision = __webpack_require__(12);
+	var _startRevision = __webpack_require__(14);
 
 	var _startRevision2 = _interopRequireDefault(_startRevision);
 
-	var _finishRevision = __webpack_require__(9);
+	var _finishRevision = __webpack_require__(11);
 
 	var _finishRevision2 = _interopRequireDefault(_finishRevision);
 
-	var _webpack = __webpack_require__(14);
+	var _webpack = __webpack_require__(16);
 
 	var _webpack2 = _interopRequireDefault(_webpack);
+
+	var _dev = __webpack_require__(10);
+
+	var _dev2 = _interopRequireDefault(_dev);
+
+	var _build = __webpack_require__(9);
+
+	var _build2 = _interopRequireDefault(_build);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -448,9 +507,11 @@
 	exports.StartRevision = _startRevision2.default;
 	exports.FinishRevision = _finishRevision2.default;
 	exports.Webpack = _webpack2.default;
+	exports.Dev = _dev2.default;
+	exports.Build = _build2.default;
 
 /***/ }),
-/* 16 */
+/* 18 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -504,7 +565,7 @@
 	};
 
 /***/ }),
-/* 17 */
+/* 19 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -568,49 +629,49 @@
 	};
 
 /***/ }),
-/* 18 */
+/* 20 */
 /***/ (function(module, exports) {
 
 	module.exports = require("app-root-path");
 
 /***/ }),
-/* 19 */
+/* 21 */
 /***/ (function(module, exports) {
 
 	module.exports = require("dotenv");
 
 /***/ }),
-/* 20 */
+/* 22 */
 /***/ (function(module, exports) {
 
 	module.exports = require("gulp-angular-templatecache");
 
 /***/ }),
-/* 21 */
+/* 23 */
 /***/ (function(module, exports) {
 
 	module.exports = require("gulp-gzip");
 
 /***/ }),
-/* 22 */
+/* 24 */
 /***/ (function(module, exports) {
 
 	module.exports = require("gulp-rename");
 
 /***/ }),
-/* 23 */
+/* 25 */
 /***/ (function(module, exports) {
 
 	module.exports = require("gulp-rev-all");
 
 /***/ }),
-/* 24 */
+/* 26 */
 /***/ (function(module, exports) {
 
 	module.exports = require("gulp-rev-replace");
 
 /***/ }),
-/* 25 */
+/* 27 */
 /***/ (function(module, exports) {
 
 	module.exports = require("gulp-uglify");
