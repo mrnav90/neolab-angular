@@ -75,7 +75,13 @@
 
 	var _appRootPath2 = _interopRequireDefault(_appRootPath);
 
+	var _dotenv = __webpack_require__(17);
+
+	var _dotenv2 = _interopRequireDefault(_dotenv);
+
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	_dotenv2.default.load();
 
 	var DEVELOPMENT = process.env.NODE_ENV === 'development' || true;
 	var API_URL = process.env.API_URL;
@@ -97,8 +103,6 @@
 	var PUBLIC_STYLE = BUILD_PATH + '/' + (process.env.MAIN_STYLE || 'style.css');
 	var PUBLIC_HTML = BUILD_PATH + '/' + (process.env.MAIN_HTML || 'index.html');
 	var PUBLIC_MANIFEST = BUILD_PATH + '/rev-manifest.json';
-
-	console.log(process.env);
 
 	exports.DEVELOPMENT = DEVELOPMENT;
 	exports.PUBLIC_PATH = PUBLIC_PATH;
@@ -187,7 +191,7 @@
 
 	var _gulpHtmlmin2 = _interopRequireDefault(_gulpHtmlmin);
 
-	var _gulpRevReplace = __webpack_require__(21);
+	var _gulpRevReplace = __webpack_require__(22);
 
 	var _gulpRevReplace2 = _interopRequireDefault(_gulpRevReplace);
 
@@ -209,7 +213,7 @@
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
-	exports.default = Html;
+	exports.default = CopyHtml;
 
 	var _gulp = __webpack_require__(2);
 
@@ -219,7 +223,7 @@
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-	function Html() {
+	function CopyHtml() {
 	  return _gulp2.default.src(_config.APP_INDEX).pipe(_gulp2.default.dest(_config.BUILD_PATH));
 	}
 
@@ -238,7 +242,7 @@
 
 	var _gulp2 = _interopRequireDefault(_gulp);
 
-	var _webpackStream = __webpack_require__(23);
+	var _webpackStream = __webpack_require__(24);
 
 	var _webpackStream2 = _interopRequireDefault(_webpackStream);
 
@@ -269,7 +273,7 @@
 
 	var _gulp2 = _interopRequireDefault(_gulp);
 
-	var _gulpRevAll = __webpack_require__(20);
+	var _gulpRevAll = __webpack_require__(21);
 
 	var _gulpRevAll2 = _interopRequireDefault(_gulpRevAll);
 
@@ -297,19 +301,19 @@
 
 	var _gulp2 = _interopRequireDefault(_gulp);
 
-	var _gulpAngularTemplatecache = __webpack_require__(17);
+	var _gulpAngularTemplatecache = __webpack_require__(18);
 
 	var _gulpAngularTemplatecache2 = _interopRequireDefault(_gulpAngularTemplatecache);
 
-	var _gulpRename = __webpack_require__(19);
+	var _gulpRename = __webpack_require__(20);
 
 	var _gulpRename2 = _interopRequireDefault(_gulpRename);
 
-	var _gulpGzip = __webpack_require__(18);
+	var _gulpGzip = __webpack_require__(19);
 
 	var _gulpGzip2 = _interopRequireDefault(_gulpGzip);
 
-	var _gulpUglify = __webpack_require__(22);
+	var _gulpUglify = __webpack_require__(23);
 
 	var _gulpUglify2 = _interopRequireDefault(_gulpUglify);
 
@@ -339,7 +343,7 @@
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
-	exports.FinishRevision = exports.StartRevision = exports.Template = exports.Sass = exports.Html = exports.CopyAssets = undefined;
+	exports.FinishRevision = exports.StartRevision = exports.Template = exports.Sass = exports.CopyHtml = exports.CopyAssets = undefined;
 
 	var _assets = __webpack_require__(6);
 
@@ -368,7 +372,7 @@
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 	exports.CopyAssets = _assets2.default;
-	exports.Html = _html2.default;
+	exports.CopyHtml = _html2.default;
 	exports.Sass = _sass2.default;
 	exports.Template = _template2.default;
 	exports.StartRevision = _startRevision2.default;
@@ -528,40 +532,46 @@
 /* 17 */
 /***/ (function(module, exports) {
 
-	module.exports = require("gulp-angular-templatecache");
+	module.exports = require("dotenv");
 
 /***/ }),
 /* 18 */
 /***/ (function(module, exports) {
 
-	module.exports = require("gulp-gzip");
+	module.exports = require("gulp-angular-templatecache");
 
 /***/ }),
 /* 19 */
 /***/ (function(module, exports) {
 
-	module.exports = require("gulp-rename");
+	module.exports = require("gulp-gzip");
 
 /***/ }),
 /* 20 */
 /***/ (function(module, exports) {
 
-	module.exports = require("gulp-rev-all");
+	module.exports = require("gulp-rename");
 
 /***/ }),
 /* 21 */
 /***/ (function(module, exports) {
 
-	module.exports = require("gulp-rev-replace");
+	module.exports = require("gulp-rev-all");
 
 /***/ }),
 /* 22 */
 /***/ (function(module, exports) {
 
-	module.exports = require("gulp-uglify");
+	module.exports = require("gulp-rev-replace");
 
 /***/ }),
 /* 23 */
+/***/ (function(module, exports) {
+
+	module.exports = require("gulp-uglify");
+
+/***/ }),
+/* 24 */
 /***/ (function(module, exports) {
 
 	module.exports = require("webpack-stream");
