@@ -13,11 +13,6 @@ module.exports = {
     filename: 'index.js',
     libraryTarget: 'commonjs'
   },
-  resolveLoader: {
-    alias: {
-      'css-loader': require.resolve(__dirname, 'css-loader')
-    }
-  },
   stats: { children: false },
   externals: [ /^(?!\.|\/).+/i ],
   module: {
@@ -25,11 +20,11 @@ module.exports = {
       {
         test: /\.js$/,
         exclude: /node_modules/,
-        loader: 'babel-loader'
+        loader: require.resolve('babel-loader')
       },
       {
         test: /\.json$/,
-        loader: 'json-loader'
+        loader: require.resolve('json-loader')
       }
     ]
   },
