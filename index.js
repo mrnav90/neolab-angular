@@ -154,6 +154,7 @@
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 	module.exports = {
+	  context: __dirname,
 	  entry: _config.APP_JS,
 	  output: _config.DEVELOPMENT ? _dev2.default.output : _production2.default.output,
 	  stats: { children: false },
@@ -504,6 +505,14 @@
 	var _build2 = _interopRequireDefault(_build);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	_gulp2.default.task('copy-assets', _assets2.default);
+	_gulp2.default.task('copy-html', _html2.default);
+	_gulp2.default.task('sass', _sass2.default);
+	_gulp2.default.task('template', _template2.default);
+	_gulp2.default.task('start-revision', _startRevision2.default);
+	_gulp2.default.task('finish-revision', _finishRevision2.default);
+	_gulp2.default.task('webpack', _webpack2.default);
 
 	exports.CopyAssets = _assets2.default;
 	exports.CopyHtml = _html2.default;

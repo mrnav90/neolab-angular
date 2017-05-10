@@ -13,6 +13,12 @@ module.exports = {
     filename: 'index.js',
     libraryTarget: 'commonjs'
   },
+  resolveLoader: {
+    alias: {
+      'css-loader': require.resolve('css-loader'),
+      'json-loader': require.resolve('json-loader')
+    }
+  },
   stats: { children: false },
   externals: [ /^(?!\.|\/).+/i ],
   module: {
