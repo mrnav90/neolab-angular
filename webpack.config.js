@@ -15,8 +15,7 @@ module.exports = {
   },
   resolveLoader: {
     alias: {
-      'css-loader': require.resolve('css-loader'),
-      'json-loader': require.resolve('json-loader')
+      'css-loader': require.resolve(__dirname, 'css-loader')
     }
   },
   stats: { children: false },
